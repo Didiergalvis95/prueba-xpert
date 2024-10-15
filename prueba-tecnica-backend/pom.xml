@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.co.expertgroup</groupId>
 	<artifactId>prueba-tecnica-backend</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>prueba-tecnica</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
@@ -114,6 +114,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>prueba-tecnica-backend</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
