@@ -3,14 +3,14 @@
     <section class=" d-flex flex-column mb-5">
         <label for="" class="text-center my-3">Razas disponibles</label>
         <div class="row">
-            <div class="col-3"> </div>
-            <div class="col-sm-6 col-12">
+            <div class="col-2"> </div>
+            <div class="col-lg-8 col-12 w-100">
                 <select name="" id="" class="form-select" (change)="onSelectCat($event)">
                     <option selected disabled value="">seleccione una opcion</option>
                     <option *ngFor="let item of cats" [value]="item.id">{{item.name}}</option>
                 </select>
             </div>
-            <div class="col-3"> </div>
+            <div class="col-2"> </div>
         </div>
     </section>
     <section *ngIf="cat" class="row">
