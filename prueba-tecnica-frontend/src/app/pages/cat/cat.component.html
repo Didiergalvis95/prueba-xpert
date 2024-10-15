@@ -1,0 +1,31 @@
+
+<section class="d-flex flex-column align-items-center">
+    <section class=" d-flex flex-column mb-5">
+        <label for="" class="text-center my-3">Razas disponibles</label>
+        <div class="row">
+            <div class="col-3"> </div>
+            <div class="col-sm-6 col-12">
+                <select name="" id="" class="form-select" (change)="onSelectCat($event)">
+                    <option selected disabled value="">seleccione una opcion</option>
+                    <option *ngFor="let item of cats" [value]="item.id">{{item.name}}</option>
+                </select>
+            </div>
+            <div class="col-3"> </div>
+        </div>
+    </section>
+    <section *ngIf="cat" class="row">
+        <div class="col-2"></div>
+        <carousel class="col-sm-8 col-12" *ngFor="let item of images">
+            <slide *ngFor="let element of item.breeds">
+              <img [src]="item.url" [alt]="element.name">
+              <div class="p-4 carousel-caption w-100 d-block bg-black bg-opacity-25 rounded" style="left: 0 !important; bottom: 0 !important;">
+                <h3>{{ element.name }}</h3>
+                <p><span class="fw-semibold">Description: </span>{{ element.description }}</p>
+                <p><span class="fw-semibold">Temperament: </span>{{ element.temperament }}</p>
+                <p><span class="fw-semibold">Origin: </span>{{ element.origin }}</p>
+              </div>
+            </slide>
+        </carousel>
+        <div class="col-2"></div>
+    </section>
+</section>

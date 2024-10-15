@@ -1,0 +1,13 @@
+h4{
+    font-weight: 700;
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+td{
+    text-align: justify;
+}
+
+nav{
+    cursor: pointer;
+}

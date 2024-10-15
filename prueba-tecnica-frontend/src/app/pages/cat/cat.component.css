@@ -1,0 +1,27 @@
+img{
+    display: block; 
+    width: 100% !important;
+    object-fit: cover; 
+    object-position: top;
+}
+
+label{
+    font-weight: 700;
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+@media (max-width: 450px) {
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    p {
+        font-size: 0.7rem;
+        margin: 3px 0;
+    }
+    .carousel-caption{
+        padding: 0 !important;
+    }
+
+}

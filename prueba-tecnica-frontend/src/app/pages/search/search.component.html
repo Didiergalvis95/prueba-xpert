@@ -1,0 +1,12 @@
+<section class="mt-5">
+    <section class="d-flex flex-column search mx-3">
+        <div class="input-group mb-3">
+            <input #searchInput type="text" class="form-control" placeholder="Search" >
+            <button class="btn btn-outline-dark" type="button" id="button-addon2" (click)="onSearch(searchInput.value)">Buscar</button>
+        </div>
+    </section>
+
+    <div class="table-container">
+        <app-table [cats]="cats"></app-table>
+    </div>
+</section>

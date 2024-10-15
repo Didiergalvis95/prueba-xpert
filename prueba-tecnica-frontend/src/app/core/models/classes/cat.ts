@@ -1,0 +1,75 @@
+import { Weight } from "./weight";
+
+export class Cat {
+    weight: Weight;
+    id: string;
+    name: string;
+    temperament: string;
+    origin: string;
+    countryCodes: string;
+    countryCode: string;
+    description: string;
+    lifeSpan: string;
+    indoor: number;
+    lap: number;
+    altNames: string;
+    adaptability: number;
+    affectionLevel: number;
+    childFriendly: number;
+    dogFriendly: number;
+    energyLevel: number;
+    grooming: number;
+    healthIssues: number;
+    intelligence: number;
+    sheddingLevel: number;
+    socialNeeds: number;
+    strangerFriendly: number;
+    vocalisation: number;
+    experimental: number;
+    hairless: number;
+    natural: number;
+    rare: number;
+    rex: number;
+    suppressedTail: number;
+    shortLegs: number;
+    wikipediaUrl: string;
+    hypoallergenic: number;
+    referenceImageId: string;
+    constructor() {
+        this.weight = { metric: '', imperial: '', };
+        this.id = '';
+        this.name = '';
+        this.temperament = '';
+        this.origin = '';
+        this.countryCodes = '';
+        this.countryCode = '';
+        this.description = '';
+        this.lifeSpan = '';
+        this.indoor = 0;
+        this.lap = 0;
+        this.altNames = '';
+        this.adaptability = 0;
+        this.affectionLevel = 0;
+        this.childFriendly = 0;
+        this.dogFriendly = 0;
+        this.energyLevel = 0;
+        this.grooming = 0;
+        this.healthIssues = 0;
+        this.intelligence = 0;
+        this.sheddingLevel = 0;
+        this.socialNeeds = 0;
+        this.strangerFriendly = 0;
+        this.vocalisation = 0;
+        this.experimental = 0;
+        this.hairless = 0;
+        this.natural = 0;
+        this.rare = 0;
+        this.rex = 0;
+        this.suppressedTail = 0;
+        this.shortLegs = 0;
+        this.wikipediaUrl = '';
+        this.hypoallergenic = 0;
+        this.referenceImageId = '';
+      }
+}
+

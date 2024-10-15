@@ -1,0 +1,16 @@
+.search{
+    width: 350px;
+}
+
+.search input{
+    border-radius: 10px;
+    padding: 5px;
+    border: 1px solid;
+    box-shadow: none;
+    outline: black !important;
+}
+
+.table-container {
+    max-width: auto;
+    overflow-x: auto;
+}
