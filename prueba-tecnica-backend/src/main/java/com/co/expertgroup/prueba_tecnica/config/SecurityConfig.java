@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -34,12 +35,13 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
+                .cors(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
                 .headers(headers -> headers
                         .httpStrictTransportSecurity(HeadersConfigurer.HstsConfig::disable))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(httpRequest ->{
-                    httpRequest.requestMatchers("/auth/**", "/h2-console/**").permitAll();
+                    httpRequest.requestMatchers("/auth/**").permitAll();
                     httpRequest.requestMatchers("/cat/**", "/images/**").hasRole("USER");
                     httpRequest.anyRequest().denyAll();
                 })

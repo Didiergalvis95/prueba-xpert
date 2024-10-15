@@ -13,15 +13,15 @@ import java.util.List;
 @Configuration
 public class CorsConfig{
     @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:4200"));
-        configuration.setAllowedMethods(List.of("GET", "POST", "OPTIONS"));
-        configuration.setAllowedHeaders(List.of("*"));
-        configuration.setAllowCredentials(true);
+    WebMvcConfigurer corsConfiguration() {
 
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-        return source;
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                        .allowedHeaders("*")
+                        .allowedMethods("GET", "POST");
+            }
+        };
     }
 }
