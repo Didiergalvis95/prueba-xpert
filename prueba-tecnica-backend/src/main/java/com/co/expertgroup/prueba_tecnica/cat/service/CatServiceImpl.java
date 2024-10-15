@@ -17,6 +17,7 @@ import java.util.List;
 public class CatServiceImpl implements ICatService {
 
     private static final String ENDPOINT = "breeds";
+    private static final String ENDPOINT_SEARCH = "/v1/breeds/search";
 
     private WebClient webClient;
 
@@ -36,8 +37,7 @@ public class CatServiceImpl implements ICatService {
 
     @Override
     public Mono<List<CatDto>> getBreedsBySearch(String search) {
-        String url = String.format("%s/%s/%s",
-                Constants.URL_API, ENDPOINT, search);
-        return Utilities.getList(url, CatDto.class);
+        return Utilities.getListByParam(Constants.PROTOCOL, Constants.URL, ENDPOINT_SEARCH,
+                "q", search, CatDto.class);
     }
 }

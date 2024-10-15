@@ -1,7 +1,9 @@
 package com.co.expertgroup.prueba_tecnica.image.web.controller;
 
+import com.co.expertgroup.prueba_tecnica.image.persistence.mapper.IImageMapper;
 import com.co.expertgroup.prueba_tecnica.image.service.IImageService;
 import com.co.expertgroup.prueba_tecnica.image.service.dto.ImageDto;
+import com.co.expertgroup.prueba_tecnica.image.service.dto.response.ImageResponse;
 import com.co.expertgroup.prueba_tecnica.util.Constants;
 import com.co.expertgroup.prueba_tecnica.util.dto.ResponseDto;
 import com.co.expertgroup.prueba_tecnica.util.dto.ResponseListDto;
@@ -22,12 +24,14 @@ import java.util.List;
 
 @Tag(name = "Imágenes", description = "Controlador para la gestión de imágenes por ID de raza")
 @RestController
-@RequestMapping("/image")
+@RequestMapping("/images")
 @RequiredArgsConstructor
 @Log4j2
 public class ImageController {
 
     private final IImageService imageService;
+    private final IImageMapper imageMapper;
+
     @ApiOperation(value = "Obtener imágenes por ID de raza", notes = "Este endpoint obtiene una lista de imágenes basadas en el ID de una raza específica")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Operación exitosa. Retorna la lista de imágenes.",
@@ -44,13 +48,14 @@ public class ImageController {
             @Parameter(required = true, description = "")
             @PathVariable("breed_id") String breedId){
         try {
-            List<ImageDto> listDto = imageService.getImagesByBreedId(breedId).block();
-            return ResponseEntity.status(HttpStatus.OK).body(ResponseListDto.<ImageDto>builder()
-                    .data(listDto)
-                    .count(listDto.size())
+            List<ImageDto> listDto = this.imageService.getImagesByBreedId(breedId).block();
+            List<ImageResponse> responseList = this.imageMapper.toImageResponseList(listDto);
+            return ResponseEntity.status(HttpStatus.OK).body(ResponseListDto.<ImageResponse>builder()
+                    .data(responseList)
+                    .count(responseList.size())
                     .build());
         } catch (Exception e){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Constants.ERROR);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseDto(Constants.ERROR));
         }
     }
 }

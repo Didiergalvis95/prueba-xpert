@@ -14,5 +14,8 @@ public class Constants {
     public static final String HEADER_KEY = "x-api-key";
     public static final String HEADER_KEY_VALUE = "live_JBT0Ah0Nt12iyl2IpjQVLDWjcLk0GQwf4zI9wBMfmfejKmcC31mOJp4yJz5TsOUP";
     public static final String HEADER_CONTENT_VALUE = "application/json";
+    public static final String PROTOCOL = "https";
+    public static final String URL = "api.thecatapi.com";
     public static final String  ERROR = "Error al obtener la información";
+    public static final String PREFIX_TOKEN = "Bearer ";
 }
